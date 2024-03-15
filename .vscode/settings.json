@@ -1,7 +1,0 @@
-{
-	"workbench.editor.languageDetection": false,
-	"files.associations": {
-		"*.h": "c"
-	},
-	"cSpell.words": ["Elmt"]
-}
