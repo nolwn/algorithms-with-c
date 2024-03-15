@@ -36,7 +36,7 @@ void list_destroy(List *list);
  * @brief Inserts an element just after element in the linked list specified by list. If
  * element is NULL, the new element is inserted at the head of the list. The new element
  * contains a pointer to data, so the memory reference bt data should remain valid as long
- *  as the element remains in the list. It is the responsibility of the caller to manage
+ * as the element remains in the list. It is the responsibility of the caller to manage
  * the storage associated with data.
  *
  * @param list the list the insert an element into
@@ -111,7 +111,7 @@ int list_is_tail(const ListElmt *element);
  * @param element the element whose data will be evaluated to
  * @return Data stored in the element.
  */
-void *list_dta(const ListElmt *element);
+void *list_data(const ListElmt *element);
 
 /**
  * @brief Macro that evaluates to the element of a linked list following the element
