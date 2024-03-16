@@ -1,9 +1,15 @@
 typedef struct ListElmt_
 {
+	struct ListElmt_ *next;
+	const void *data;
 } ListElmt;
 
 typedef struct List_
 {
+	void (*destroy)(void *data);
+	ListElmt *head;
+	int size;
+	ListElmt *tail;
 } List;
 
 /**
@@ -66,7 +72,7 @@ int list_rem_next(List *list, ListElmt *element, void **data);
  * @param list the list to be sized.
  * @return number of elements in the list.
  */
-int list_size(const List *list);
+#define list_size(list) ((list)->size)
 
 /**
  * @brief Macro that evaluates to the element at the head of the linked list specified by
@@ -75,7 +81,7 @@ int list_size(const List *list);
  * @param list the list to get the head of.
  * @return Element at the head of the list.
  */
-ListElmt *list_head(const List *list);
+#define list_head(list) ((list)->head)
 
 /**
  * @brief Macro that evaluates to the element at the tail of the linked list specified by
@@ -84,7 +90,7 @@ ListElmt *list_head(const List *list);
  * @param list the list to get the tail of.
  * @return Element at the tail of the list
  */
-ListElmt *list_tail(const List *list);
+#define list_tail(list) ((list)->tail)
 
 /**
  * @brief Macro that determines whether the element specified as element is at the head of
@@ -111,7 +117,7 @@ int list_is_tail(const ListElmt *element);
  * @param element the element whose data will be evaluated to
  * @return Data stored in the element.
  */
-void *list_data(const ListElmt *element);
+#define list_data(element) ((element)->data)
 
 /**
  * @brief Macro that evaluates to the element of a linked list following the element
@@ -120,4 +126,4 @@ void *list_data(const ListElmt *element);
  * @param element the element whose next element will be returned
  * @return Element following the specified element
  */
-ListElmt *list_next(const ListElmt *element);
+#define list_next(element) ((element)->next)
