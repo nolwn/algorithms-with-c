@@ -66,7 +66,7 @@ void run_tests()
 
 		if (rlt->errors_size > 0)
 		{
-			printf("[\x1B[31mFAIL\x1B[0m] %s\n", current->name);
+			printf("\x1B[30;41m FAIL \x1B[0m %s\n", current->name);
 
 			for (int i = 0; i < rlt->errors_size; i++)
 			{
@@ -79,7 +79,7 @@ void run_tests()
 		}
 		else
 		{
-			printf("[\x1B[32mPASS\x1B[0m] %s\n", current->name);
+			printf("\x1B[30;42m PASS \x1B[0m %s\n", current->name);
 		}
 
 		current = current->next;
